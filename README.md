@@ -1,2 +1,2 @@
 # otus_cpp
-Excersises and homework from OTUS C++ courses
+Exercises and homework from OTUS C++ courses

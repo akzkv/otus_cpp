@@ -9,12 +9,12 @@ auto getPerson() {
   const std::size_t age = 23;
   const std::string department = "Sale";
   return std::make_tuple(
-  name, secondName, age, department
+    name, secondName, age, department
   );
 }
 
 int main(int argc, char * argv[]) {
-  
+  break_build_right_here
   std::cout << "Entering program..." << std::endl;
   
   std::string name, secondName, department;

@@ -14,7 +14,7 @@ auto getPerson() {
 }
 
 int main(int argc, char * argv[]) {
-  break_build_right_here
+
   std::cout << "Entering program..." << std::endl;
   
   std::string name, secondName, department;

@@ -1,3 +1,9 @@
+# build folders
+build/
+mingw_build/
+*/bin/
+*/lib/
+
 # Prerequisites
 *.d
 

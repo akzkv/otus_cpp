@@ -5,20 +5,32 @@ project(otus_cpp
   VERSION 0.0.1
 )
 
-set(CMAKE_BUILD_TYPE Debug)
+if(DEFINED ENV{GITHUB_RUN_NUMBER})
+  set(PATCH_NUM $ENV{GITHUB_RUN_NUMBER})
+else()
+  set(PATCH_NUM "-1")
+endif()
 
-#include_directories(${CMAKE_BINARY_DIR})
+if(DEFINED ENV{BUILD_TYPE})
+  set(CMAKE_BUILD_TYPE $ENV{BUILD_TYPE})
+else()
+  set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+configure_file(version.h.in version.h)
+include_directories(${CMAKE_BINARY_DIR})
 
 add_subdirectory(custom_tie)
+add_subdirectory(hello)
 
-#install(TARGETS custom_tie RUNTIME DESTINATION bin)
+install(TARGETS hello RUNTIME DESTINATION bin)
 
-#set(CPACK_GENERATOR DEB)
-#set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
-#set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
-#set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
+set(CPACK_GENERATOR DEB)
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${PATCH_NUM}")
 
-#set(CPACK_PACKAGE_CONTACT example@example.com)
+set(CPACK_PACKAGE_CONTACT example@example.com)
 
-#include(CPack)
+include(CPack)
 

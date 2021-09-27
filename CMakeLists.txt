@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 if(DEFINED ENV{GITHUB_RUN_NUMBER})
   set(PATCH_NUM $ENV{GITHUB_RUN_NUMBER})
 else()
-  set(PATCH_NUM "-1")
+  set(PATCH_NUM "0")
 endif()
 
 project(otus_cpp
@@ -14,8 +14,10 @@ project(otus_cpp
 if(DEFINED ENV{BUILD_TYPE})
   set(CMAKE_BUILD_TYPE $ENV{BUILD_TYPE})
 else()
-  set(CMAKE_BUILD_TYPE Debug)
+  set(CMAKE_BUILD_TYPE Release)
 endif()
+
+message(STATUS "Build type:" ${CMAKE_BUILD_TYPE})
 
 configure_file(version.h.in version.h)
 include_directories(${CMAKE_BINARY_DIR})
@@ -23,7 +25,7 @@ include_directories(${CMAKE_BINARY_DIR})
 add_subdirectory(custom_tie)
 add_subdirectory(hello)
 
-install(TARGETS hello RUNTIME DESTINATION bin)
+install(TARGETS hello custom_tie RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")

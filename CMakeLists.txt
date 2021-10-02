@@ -14,18 +14,19 @@ project(otus_cpp
 if(DEFINED ENV{BUILD_TYPE})
   set(CMAKE_BUILD_TYPE $ENV{BUILD_TYPE})
 else()
-  set(CMAKE_BUILD_TYPE Release)
+  set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-message(STATUS "Build type:" ${CMAKE_BUILD_TYPE})
+message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 
 configure_file(version.h.in version.h)
 include_directories(${CMAKE_BINARY_DIR})
 
 add_subdirectory(custom_tie)
 add_subdirectory(hello)
+add_subdirectory(ip_filter)
 
-install(TARGETS hello custom_tie RUNTIME DESTINATION bin)
+install(TARGETS hello custom_tie ip_filter RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")

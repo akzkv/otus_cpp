@@ -17,6 +17,6 @@ Cmake build actions for GitHub are configured in .github\workflows\cmake.yml
 
 .github\workflows\release.yml configures GitHub Action to build sources and create CPack debian package. 
 * install WSL
-* download otus_cpp-0.0.6-Linux.deb somewhere to mnt/c
+* download otus_cpp-0.0.6-Linux.deb from your GitHub releases somewhere to mnt/c
 * sudo dpkg -i otus_cpp-0.0.6-Linux.deb
 * hello

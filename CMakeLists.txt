@@ -25,6 +25,7 @@ include_directories(${CMAKE_BINARY_DIR})
 add_subdirectory(custom_tie)
 add_subdirectory(hello)
 add_subdirectory(ip_filter)
+add_subdirectory(bulk)
 
 install(TARGETS hello custom_tie ip_filter RUNTIME DESTINATION bin)
 

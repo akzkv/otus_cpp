@@ -27,7 +27,7 @@ add_subdirectory(hello)
 add_subdirectory(ip_filter)
 add_subdirectory(bulk)
 
-install(TARGETS hello custom_tie ip_filter RUNTIME DESTINATION bin)
+install(TARGETS hello custom_tie ip_filter bulk RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
